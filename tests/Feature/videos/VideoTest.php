@@ -23,7 +23,7 @@ class VideoTest extends TestCase
             'series_id' => 1
         ]);
         $response = $this->get('/videos/' . $video->id);
-        //Comprovacions
+        //Comprovacions - 
         $response->assertStatus(200);
         $response->assertSee('Ubuntu 101');
         $response->assertSee('Here description');
