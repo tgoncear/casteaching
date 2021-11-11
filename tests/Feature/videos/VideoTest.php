@@ -2,17 +2,21 @@
 
 namespace Tests\Feature\videos;
 
+use App\Models\Video;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class VideoTest extends TestCase
 {
+    use RefreshDatabase;
     /**
-     * test
+     * @test
      */
     public function user_can_view_videos()
     {
+
         $video = Video::create([
             'title' => 'Ubuntu 101',
             'description' => '# Here description',
@@ -22,8 +26,8 @@ class VideoTest extends TestCase
             'next' => null,
             'series_id' => 1
         ]);
-        $response = $this->get('/videos/' . $video->id);
-        //Comprovacions - 
+        $response = $this->get('/videos/' . $video->id); // SLUGS -> SEO -> TODO
+        //Comprovacions -
         $response->assertStatus(200);
         $response->assertSee('Ubuntu 101');
         $response->assertSee('Here description');
