@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideosController;
 use App\Models\Video;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/videos/1', function () {
-    $video = Video::find(1);
-    return view('videos.show',['video' => $video]);
-});
+Route::get('/videos/{id}', [ VideosController::class,'show']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
