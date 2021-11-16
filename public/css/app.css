@@ -1187,6 +1187,9 @@ select {
 .inline-flex {
 	display: inline-flex;
 }
+.table {
+	display: table;
+}
 .grid {
 	display: grid;
 }
@@ -1219,6 +1222,12 @@ select {
 }
 .h-20 {
 	height: 5rem;
+}
+.h-screen {
+	height: 100vh;
+}
+.h-4\/5 {
+	height: 80%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -2250,6 +2259,28 @@ select {
 	.md\:border-l {
 		border-left-width: 1px;
 	}
+
+	.md\:p-6 {
+		padding: 1.5rem;
+	}
+
+	.md\:p-3 {
+		padding: 0.75rem;
+	}
+
+	.md\:p-10 {
+		padding: 2.5rem;
+	}
+
+	.md\:px-6 {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.md\:px-4 {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 @media (min-width: 1024px) {
 
@@ -2257,9 +2288,71 @@ select {
 		grid-column: span 4 / span 4;
 	}
 
+	.lg\:p-20 {
+		padding: 5rem;
+	}
+
+	.lg\:p-5 {
+		padding: 1.25rem;
+	}
+
 	.lg\:px-8 {
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+}
+@media (min-width: 1280px) {
+
+	.xl\:p-10 {
+		padding: 2.5rem;
+	}
+
+	.xl\:p-40 {
+		padding: 10rem;
+	}
+
+	.xl\:px-10 {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
+	.xl\:py-5 {
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
+	}
+
+	.xl\:py-3 {
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+}
+@media (min-width: 1536px) {
+
+	.\32xl\:p-40 {
+		padding: 10rem;
+	}
+
+	.\32xl\:p-20 {
+		padding: 5rem;
+	}
+
+	.\32xl\:p-60 {
+		padding: 15rem;
+	}
+
+	.\32xl\:px-20 {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
+
+	.\32xl\:py-10 {
+		padding-top: 2.5rem;
+		padding-bottom: 2.5rem;
+	}
+
+	.\32xl\:py-5 {
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
 	}
 }
 
