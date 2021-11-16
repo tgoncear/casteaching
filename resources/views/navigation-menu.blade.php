@@ -15,9 +15,12 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="/videos/1">
+                        {{ __('Videos 1') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
-
+            @if(Auth::check())
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -122,7 +125,15 @@
                     </x-jet-dropdown>
                 </div>
             </div>
+            @else
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                </div>
+            @endif
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
@@ -141,8 +152,11 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="/videos/1">
+                {{ __('Videos 1') }}
+            </x-jet-responsive-nav-link>
         </div>
-
+        @if(Auth::check())
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -213,5 +227,14 @@
                 @endif
             </div>
         </div>
+            @else
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                </div>
+            @endif
     </div>
 </nav>
