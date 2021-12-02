@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         create_superadmin_user();
         create_regular_user();
         create_video_manager_user();
+        create_sample_videos();
         create_default_video();
         create_permissions();
 
