@@ -8,6 +8,6 @@ return [
         'nameTudor' => env('TUDOR_USER_NAME','Tudor Goncear'),
         'emailTudor' => env('TUDOR_USER_EMAIL','tgoncear@iesebre.com')
     ]
-
+    //aas
 ];
 
