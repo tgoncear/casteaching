@@ -123,6 +123,8 @@ if(!function_exists('create_permissions')){
         Permission::firstOrCreate(['name' => 'videos_manage_index']);
         Permission::firstOrCreate(['name' => 'videos_manage_create']);
         Permission::firstOrCreate(['name' => 'videos_manage_store']);
+        Permission::firstOrCreate(['name' => 'videos_manage_edit']);
+        Permission::firstOrCreate(['name' => 'videos_manage_update']);
         Permission::firstOrCreate(['name' => 'videos_manage_destroy']);
         Permission::firstOrCreate(['name' => 'users_manage_index']);
         Permission::firstOrCreate(['name' => 'users_manage_create']);
@@ -145,6 +147,10 @@ if(!function_exists('create_video_manager_user')){
         $user->givePermissionTo('videos_manage_destroy');
         Permission::create(['name' => 'videos_manage_store']);
         $user->givePermissionTo('videos_manage_store');
+        Permission::create(['name' => 'videos_manage_edit']);
+        Permission::create(['name' => 'videos_manage_update']);
+        $user->givePermissionTo('videos_manage_edit');
+        $user->givePermissionTo('videos_manage_update');
         add_personal_team($user);
         return $user;
     }

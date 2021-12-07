@@ -765,6 +765,39 @@ select {
 [type='file']:focus {
 	outline: 1px auto -webkit-focus-ring-color;
 }
+.container {
+	width: 100%;
+}
+@media (min-width: 640px) {
+
+	.container {
+		max-width: 640px;
+	}
+}
+@media (min-width: 768px) {
+
+	.container {
+		max-width: 768px;
+	}
+}
+@media (min-width: 1024px) {
+
+	.container {
+		max-width: 1024px;
+	}
+}
+@media (min-width: 1280px) {
+
+	.container {
+		max-width: 1280px;
+	}
+}
+@media (min-width: 1536px) {
+
+	.container {
+		max-width: 1536px;
+	}
+}
 .prose {
 	color: #374151;
 	max-width: 65ch;
@@ -1274,6 +1307,10 @@ select {
 	bottom: 0px;
 	left: 0px;
 }
+.inset-y-0 {
+	top: 0px;
+	bottom: 0px;
+}
 .left-0 {
 	left: 0px;
 }
@@ -1282,6 +1319,9 @@ select {
 }
 .top-0 {
 	top: 0px;
+}
+.right-1 {
+	right: 0.25rem;
 }
 .z-0 {
 	z-index: 0;
@@ -1396,6 +1436,15 @@ select {
 }
 .-mt-px {
 	margin-top: -1px;
+}
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
+.mb-0 {
+	margin-bottom: 0px;
+}
+.mb-1 {
+	margin-bottom: 0.25rem;
 }
 .block {
 	display: block;
@@ -1788,6 +1837,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
+.bg-green-800 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(6, 95, 70, var(--tw-bg-opacity));
+}
+.bg-indigo-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(165, 180, 252, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -1803,6 +1860,10 @@ select {
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
+}
+.object-right {
+	-o-object-position: right;
+	   object-position: right;
 }
 .p-2 {
 	padding: 0.5rem;
@@ -1907,6 +1968,9 @@ select {
 }
 .pt-8 {
 	padding-top: 2rem;
+}
+.pt-0 {
+	padding-top: 0px;
 }
 .text-left {
 	text-align: left;
@@ -2973,6 +3037,10 @@ select {
 		margin-top: 0px;
 	}
 
+	.md\:mb-2 {
+		margin-bottom: 0.5rem;
+	}
+
 	.md\:flex {
 		display: flex;
 	}
@@ -3005,6 +3073,15 @@ select {
 		border-left-width: 1px;
 	}
 
+	.md\:bg-transparent {
+		background-color: transparent;
+	}
+
+	.md\:bg-white {
+		--tw-bg-opacity: 1;
+		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	}
+
 	.md\:p-3 {
 		padding: 0.75rem;
 	}
@@ -3012,6 +3089,11 @@ select {
 	.md\:px-6 {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+	}
+
+	.md\:px-4 {
+		padding-left: 1rem;
+		padding-right: 1rem;
 	}
 }
 @media (min-width: 1024px) {
@@ -3261,6 +3343,10 @@ select {
 	.lg\:-mx-8 {
 		margin-left: -2rem;
 		margin-right: -2rem;
+	}
+
+	.lg\:mb-4 {
+		margin-bottom: 1rem;
 	}
 
 	.lg\:p-5 {
