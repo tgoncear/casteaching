@@ -160,6 +160,7 @@ class VideosManageControllerTest extends TestCase
 
         $response->assertStatus(403);
     }
+    //hola
     /** @test  */
     public function user_with_permissions_can_update_videos()
     {
