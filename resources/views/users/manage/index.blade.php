@@ -111,7 +111,11 @@
                         <tbody>
                         <!-- Odd row -->
                         @foreach($users as $user)
-                            <tr class="bg-white">
+                            @if($loop->odd)
+                                <tr class="bg-white">
+                            @else
+                                <tr class="bg-gray-50">
+                            @endif
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                     {{ $user->id }}
                                 </td>
