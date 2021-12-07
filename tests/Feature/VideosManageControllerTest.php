@@ -151,14 +151,70 @@ class VideosManageControllerTest extends TestCase
     public function user_without_permissions_cannot_destroy_videos() {
         $this->loginAsRegularUser();
         $video = Video::create([
-            'title' => 'HTTP for noobs',
-            'description' => 'Te ensenyo tot el que se sobre HTTP',
+            'title' => 'HTTP',
+            'description' => 'HTTP',
             'url' => 'https://tubeme.acacha.org/http',
         ]);
 
         $response = $this->delete('/manage/videos/' . $video->id);
 
         $response->assertStatus(403);
+    }
+    /** @test  */
+    public function user_with_permissions_can_update_videos()
+    {
+        $this->loginAsVideoManager();
+        $video = Video::create([
+            'title' => 'HTTP',
+            'description' => 'HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+
+        // URI ENDPOINT -> API -> FUNCTION
+        $response = $this->put('/manage/videos/' . $video->id,[
+                'title' => 'HTTP',
+                'description' => "HTTP",
+                'url' => 'https://tubeme.acacha.org/http_cracks',
+            ]
+        );
+
+        $response->assertRedirect(route('manage.videos'));
+        $response->assertSessionHas('status', 'Successfully updated');
+
+
+        $newVideo = Video::find($video->id);
+        $this->assertEquals('HTTP', $newVideo->title);
+        $this->assertEquals("HTTP", $newVideo->description);
+        $this->assertEquals('https://tubeme.acacha.org/http_cracks', $newVideo->url);
+        $this->assertEquals($video->id, $newVideo->id);
+
+    }
+
+    /** @test  */
+    public function user_with_permissions_can_see_edit_videos()
+    {
+        $this->withoutDeprecationHandling();
+        $this->loginAsVideoManager();
+        $video = Video::create([
+            'title' => 'HTTP',
+            'description' => 'HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+
+        $response = $this->get('/manage/videos/' . $video->id);
+
+        $response->assertStatus(200);
+        $response->assertViewIs('videos.manage.edit');
+        $response->assertViewHas('video', function($v) use ($video) {
+            return $video->is($v);
+        });
+
+        $response->assertSee('<form data-qa="form_video_edit"',false);
+
+        $response->assertSeeText($video->title);
+        $response->assertSeeText($video->description);
+        $response->assertSee($video->url);
+
     }
 
     private function loginAsVideoManager()
