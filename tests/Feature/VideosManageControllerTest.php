@@ -20,6 +20,39 @@ class VideosManageControllerTest extends TestCase
      *
      * @test
      */
+    public function user_with_permissions_can_see_add_videos()
+    {
+        $this->loginAsVideoManager();
+
+        $response = $this->get('/manage/videos');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('videos.manage.index');
+
+        $response->assertSee('<form data-qa="form_video_create"',false);
+    }
+
+    /** @test  */
+    public function user_without_videos_manage_create_cannot_see_add_videos()
+    {
+        Permission::firstOrCreate(['name' => 'videos_manage_index']);
+        $user = User::create([
+            'name' => 'Pepe',
+            'email' => 'Pepe',
+            'password' => Hash::make('12345678')
+        ]);
+        $user->givePermissionTo('videos_manage_index');
+        add_personal_team($user);
+
+        Auth::login($user);
+
+        $response = $this->get('/manage/videos');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('videos.manage.index');
+
+        $response->assertDontSee('<form data-qa="form_video_create"',false);
+    }
     public function user_with_permissions_can_manage_videos()
     {
         $this->loginAsVideoManager();

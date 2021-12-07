@@ -97,9 +97,27 @@ if(!function_exists('define_gates')){
         });
     }
 }
+if (! function_exists('create_user_manager_user')) {
+    function create_user_manager_user() {
+        $user = User::create([
+            'name' => 'UsersManager',
+            'email' => 'usersmanager@casteaching.com',
+            'password' => Hash::make('12345678')
+        ]);
+
+        Permission::create(['name' => 'users_manage_index']);
+        Permission::create(['name' => 'users_manage_create']);
+        $user->givePermissionTo('users_manage_index');
+        $user->givePermissionTo('users_manage_create');
+
+        add_personal_team($user);
+        return $user;
+    }
+}
 if(!function_exists('create_permissions')){
     function create_permissions(){
         Permission::firstOrCreate(['name' => 'videos_manage_index']);
+        Permission::firstOrCreate(['name' => 'videos_manage_create']);
     }
 }
 if(!function_exists('create_video_manager_user')){
@@ -111,6 +129,8 @@ if(!function_exists('create_video_manager_user')){
         ]);
         Permission::firstOrCreate(['name' => 'videos_manage_index']);
         $user->givePermissionTo('videos_manage_index');
+        Permission::firstOrCreate(['name' => 'videos_manage_create']);
+        $user->givePermissionTo('videos_manage_create');
         add_personal_team($user);
         return $user;
     }
@@ -136,5 +156,26 @@ if(!function_exists('create_sample_videos')){
             'series_id' => 1
         ]);
         return [$video1,$video2];
+    }
+}
+if (! function_exists('create_sample_users')) {
+    function create_sample_users() {
+        $user1 = User::create([
+            'name' => 'usuari1',
+            'email' => 'usuari1@gmail.com',
+            'password' => Hash::make('12345678')
+        ]);
+        $user2 = User::create([
+            'name' => 'usuari2',
+            'email' => 'usuari2@gmail.com',
+            'password' => Hash::make('12345678')
+        ]);
+        $user3 = User::create([
+            'name' => 'usuari1',
+            'email' => 'usuari3@gmail.com',
+            'password' => Hash::make('12345678')
+        ]);
+
+        return [$user1, $user2, $user3];
     }
 }
