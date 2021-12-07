@@ -7,6 +7,7 @@ use App\Models\Video;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
@@ -94,6 +95,45 @@ class VideosManageControllerTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('videos.manage.index');
+    }
+
+    /** @test */
+    public function user_with_permissions_can_store_videos()
+    {
+        $this->loginAsVideoManager();
+
+        $video = objectify([
+            'title' => 'HTTP for noobs',
+            'description' => 'Te ensenyo tot el que se sobre HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+//        dump($video->title);
+//        dd($video['title']);
+
+//        $video[]
+//        $video->
+
+        // API ENDPOINT
+        $response = $this->post('/manage/videos',[
+            'title' => 'HTTP for noobs',
+            'description' => 'Te ensenyo tot el que se sobre HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+
+        $response->assertRedirect(route('manage.videos'));
+        $response->assertSessionHas('status', 'Successfully created');
+
+        // 3 Asserting
+        $videoDB = Video::first();
+
+//        $this->assertNotEquals(null, $video);
+        $this->assertNotNull($videoDB);
+        $this->assertEquals($videoDB->title,$video->title);
+        $this->assertEquals($videoDB->description,$video->description);
+        $this->assertEquals($videoDB->url,$video->url);
+        $this->assertNull($video->published_at);
+
+
     }
 
     private function loginAsVideoManager()
