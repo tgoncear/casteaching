@@ -41,3 +41,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::post('/manage/users',[ UsersManageController::class,'store' ])->middleware(['can:users_manage_store']);
     Route::delete('/manage/users/{id}',[ UsersManageController::class,'destroy' ])->middleware(['can:users_manage_destroy']);
 });
+
+Route::get('/casteaching_package',function(){
+    return view('casteaching_package');
+});
