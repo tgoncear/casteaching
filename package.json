@@ -10,7 +10,7 @@
         "production": "mix --production"
     },
     "dependencies": {
-        "casteaching": "file:./tgoncear_casteaching_package"
+        "tgoncearcasteaching": "file:./tgoncearcasteaching_package"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.1",
