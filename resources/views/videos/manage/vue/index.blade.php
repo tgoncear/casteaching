@@ -76,5 +76,6 @@
             </div>
 
         @endcan
+        <videos-list></videos-list>
     </div>
 </x-casteachin-layout>
