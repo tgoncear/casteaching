@@ -5,6 +5,9 @@
                 <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
                         Videos
+                        <button>
+                            Refresh
+                        </button>
                     </h3>
                 </div>
                 <table class="min-w-full w-full divide-y divide-gray-200">
@@ -75,8 +78,17 @@ export default {
         }
     },
     async created(){
-        this.videos = await window.tgoncearcasteaching.videos()
+        this.getVideos()
+    },
+    methods:{
+        async refresh(){
+            this.getVideos()
+        },
+        async getVideos(){
+            this.videos = await window.tgoncearcasteaching.videos()
+        }
     }
+
 }
 </script>
 

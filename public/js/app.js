@@ -5665,6 +5665,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -5688,19 +5691,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return window.tgoncearcasteaching.videos();
+              _this.getVideos();
 
-            case 2:
-              _this.videos = _context.sent;
-
-            case 3:
+            case 1:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
     }))();
+  },
+  methods: {
+    refresh: function refresh() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.getVideos();
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    getVideos: function getVideos() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return window.tgoncearcasteaching.videos();
+
+              case 2:
+                _this3.videos = _context3.sent;
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
   }
 });
 
@@ -5794,10 +5835,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var apiClient = axios__WEBPACK_IMPORTED_MODULE_1___default().create({
   baseURL: 'http://casteaching.test/api',
-  withCredentials: false,
+  withCredentials: true,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer 6D3Nvsa56Z474QVUcSGmAcdun9JbjerAvFmmo7H2'
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -24805,33 +24847,7 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "px-4 py-3 bg-gray-50 text-right sm:px-6",
-                        },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                              attrs: { type: "submit" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.store()
-                                },
-                              },
-                            },
-                            [
-                              _vm._v(
-                                "\n                                    Crear\n                                "
-                              ),
-                            ]
-                          ),
-                        ]
-                      ),
+                      _vm._m(1),
                     ]
                   ),
                 ]
@@ -24863,6 +24879,30 @@ var staticRenderFns = [
         ]),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "px-4 py-3 bg-gray-50 text-right sm:px-6" },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+            attrs: { type: "submit" },
+          },
+          [
+            _vm._v(
+              "\n                                    Crear\n                                "
+            ),
+          ]
+        ),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -25044,7 +25084,12 @@ var staticRenderFns = [
         _c(
           "h3",
           { staticClass: "text-lg leading-6 font-medium text-gray-900" },
-          [_vm._v("\n                    Videos\n                ")]
+          [
+            _vm._v("\n                    Videos\n                    "),
+            _c("button", [
+              _vm._v("\n                        Refresh\n                    "),
+            ]),
+          ]
         ),
       ]
     )
