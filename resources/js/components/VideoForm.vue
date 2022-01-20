@@ -68,7 +68,9 @@
 </template>
 
 <script>
+import eventBus from "../eventBus";
 export default {
+
     name: "VideoForm",
     data(){
         return{
@@ -77,12 +79,17 @@ export default {
     },
     methods:{
         async store(){
-            await window.tgoncearcasteaching.video.create({
-                title: this.video.title,
-                description: this.video.description,
-                url: this.video.url
-            });
-            console.log(this.video);
+            try{
+                await window.tgoncearcasteaching.video.create({
+                    title: this.video.title,
+                    description: this.video.description,
+                    url: this.video.url
+                });
+                eventBus.$emit('created');
+                eventBus.$emit('status','Video created successfully');
+            }catch(error){
+                console.log(error);
+            }
         }
     }
 }

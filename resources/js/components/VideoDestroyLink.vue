@@ -14,7 +14,12 @@ export default {
     },
     methods:{
         async remove(){
-            await window.tgoncearcasteaching.video.destroy(this.video.id)
+            try{
+                await window.tgoncearcasteaching.video.destroy(this.video.id)
+                this.$emit('removed');
+            }catch(error){
+                console.log(error);
+            }
         }
     }
 
