@@ -5525,6 +5525,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     store: function store() {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -5532,13 +5534,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return window.tgoncearcasteaching.video.create({
-                  title: video.title,
-                  description: video.description,
-                  url: video.url
+                  title: _this.video.title,
+                  description: _this.video.description,
+                  url: _this.video.url
                 });
 
               case 2:
-                console.log(video);
+                console.log(_this.video);
 
               case 3:
               case "end":
@@ -24585,10 +24587,12 @@ var render = function () {
               _c(
                 "form",
                 {
-                  attrs: {
-                    "data-qa": "form_video_create",
-                    action: "#",
-                    method: "POST",
+                  attrs: { "data-qa": "form_video_create", method: "post" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.store.apply(null, arguments)
+                    },
                   },
                 },
                 [

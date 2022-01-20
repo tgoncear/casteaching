@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form data-qa="form_video_create" action="#" method="POST" >
+                        <form data-qa="form_video_create" @submit.prevent="store" method="post">
                             <div class="shadow sm:rounded-md sm:overflow-hidden">
                                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
 
@@ -78,11 +78,11 @@ export default {
     methods:{
         async store(){
             await window.tgoncearcasteaching.video.create({
-                title: video.title,
-                description: video.description,
-                url: video.url
+                title: this.video.title,
+                description: this.video.description,
+                url: this.video.url
             });
-            console.log(video);
+            console.log(this.video);
         }
     }
 }
