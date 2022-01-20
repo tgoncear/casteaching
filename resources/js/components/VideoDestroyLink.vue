@@ -4,6 +4,8 @@
 </template>
 
 <script>
+import eventBus from "../eventBus";
+
 export default {
     name: "VideoDestroyLink",
     props:{
@@ -17,6 +19,7 @@ export default {
             try{
                 await window.tgoncearcasteaching.video.destroy(this.video.id)
                 this.$emit('removed');
+                eventBus.$emit('status','Video removed successfully');
             }catch(error){
                 console.log(error);
             }

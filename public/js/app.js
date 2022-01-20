@@ -5357,6 +5357,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../eventBus */ "./resources/js/eventBus.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -5368,6 +5369,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "VideoDestroyLink",
   props: {
@@ -5392,20 +5394,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 _this.$emit('removed');
 
-                _context.next = 9;
+                _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('status', 'Video removed successfully');
+                _context.next = 10;
                 break;
 
-              case 6:
-                _context.prev = 6;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
-              case 9:
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 6]]);
+        }, _callee, null, [[0, 7]]);
       }))();
     }
   }
@@ -5424,16 +5427,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../eventBus */ "./resources/js/eventBus.js");
 //
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "VideoEditLink",
   props: {
     video: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    edit: function edit() {
+      _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('edit', this.video);
     }
   }
 });
@@ -5529,16 +5539,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "VideoForm",
   data: function data() {
     return {
-      video: {}
+      video: {},
+      status: 'creating'
     };
   },
   methods: {
-    store: function store() {
+    save: function save() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -5546,33 +5558,100 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                if (_this.status.equals('creating')) {
+                  _this.store();
+                }
+
+                if (_this.status.equals('editing')) {
+                  _this.update();
+                }
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    store: function store() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
                 return window.tgoncearcasteaching.video.create({
-                  title: _this.video.title,
-                  description: _this.video.description,
-                  url: _this.video.url
+                  title: _this2.video.title,
+                  description: _this2.video.description,
+                  url: _this2.video.url
                 });
 
               case 3:
                 _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('created');
                 _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('status', 'Video created successfully');
-                _context.next = 10;
+                _context2.next = 10;
                 break;
 
               case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.log(_context.t0);
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
 
               case 10:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    update: function update() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return window.tgoncearcasteaching.video.update(_this3.video.id, {
+                  title: _this3.video.title,
+                  description: _this3.video.description,
+                  url: _this3.video.url
+                });
+
+              case 3:
+                _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('updated');
+                _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('status', 'Video updated successfully');
+                _context3.next = 10;
+                break;
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 7]]);
       }))();
     }
+  },
+  created: function created() {
+    var _this4 = this;
+
+    _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$on('edit', function (video) {
+      _this4.video = video;
+      _this4.status = 'editing';
+    });
   }
 });
 
@@ -24771,8 +24850,9 @@ var render = function () {
   return _c(
     "a",
     {
-      staticClass: "text-indigo-600 hover:text-indigo-900",
-      attrs: { href: "/vue/manage/videos/" + _vm.video.id, target: "_blank" },
+      staticClass: "text-indigo-600 hover:text-indigo-900 cursor-pointer",
+      attrs: { target: "_blank" },
+      on: { click: _vm.edit },
     },
     [_vm._v("Edit")]
   )
@@ -24817,7 +24897,7 @@ var render = function () {
                   on: {
                     submit: function ($event) {
                       $event.preventDefault()
-                      return _vm.store.apply(null, arguments)
+                      return _vm.save.apply(null, arguments)
                     },
                   },
                 },
@@ -25031,7 +25111,32 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(1),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-4 py-3 bg-gray-50 text-right sm:px-6",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                              attrs: { type: "submit" },
+                            },
+                            [
+                              _vm.status === "creating"
+                                ? _c("span", [_vm._v("Create")])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.status === "editing"
+                                ? _c("span", [_vm._v("Edit")])
+                                : _vm._e(),
+                            ]
+                          ),
+                        ]
+                      ),
                     ]
                   ),
                 ]
@@ -25063,30 +25168,6 @@ var staticRenderFns = [
         ]),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "px-4 py-3 bg-gray-50 text-right sm:px-6" },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-            attrs: { type: "submit" },
-          },
-          [
-            _vm._v(
-              "\n                                    Crear\n                                "
-            ),
-          ]
-        ),
-      ]
-    )
   },
 ]
 render._withStripped = true
