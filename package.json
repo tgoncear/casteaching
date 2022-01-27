@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "dependencies": {
+        "@acacha/casteaching": "^1.0.12",
         "laravel-mix": "^6.0.39",
         "tgoncearcasteaching": "file:./tgoncearcasteaching_package",
         "vue": "^2.6.14",

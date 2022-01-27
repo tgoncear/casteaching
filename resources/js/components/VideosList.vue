@@ -65,6 +65,7 @@ import VideoShowLink from "./VideoShowLink";
 import VideoEditLink from "./VideoEditLink";
 import VideoDestroyLink from "./VideoDestroyLink";
 import eventBus from "../eventBus";
+import casteaching from "@acacha/casteaching";
 export default {
     name: "VideosList",
     components: {
@@ -88,7 +89,7 @@ export default {
             this.getVideos()
         },
         async getVideos(){
-            this.videos = await window.tgoncearcasteaching.videos()
+            this.videos = await casteaching().videos()
         }
     }
 

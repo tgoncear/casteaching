@@ -70,6 +70,7 @@
 
 <script>
 import eventBus from "../eventBus";
+import casteaching from "@acacha/casteaching";
 export default {
 
     name: "VideoForm",
@@ -90,7 +91,7 @@ export default {
         },
         async store(){
             try{
-                await window.tgoncearcasteaching.video.create({
+                await casteaching().video.create({
                     title: this.video.title,
                     description: this.video.description,
                     url: this.video.url
@@ -103,7 +104,7 @@ export default {
         },
         async update(){
             try{
-                await window.tgoncearcasteaching.video.update(this.video.id,{
+                await casteaching().video.update(this.video.id,{
                     title: this.video.title,
                     description: this.video.description,
                     url: this.video.url

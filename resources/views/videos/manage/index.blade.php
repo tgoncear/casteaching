@@ -4,7 +4,7 @@
             {{__('Videos')}}
         </h2>
     </x-slot>
-    <div class="flex flex-col mt-10 mx-auto sm:px-6 lg:px-8 w-full max-w-7xl">
+    <div class="flex flex-col mt-10 mx-auto sm:px-6 lg:px-8  w-full max-w-7xl">
         <x-status></x-status>
         @can('videos_manage_create')
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen">

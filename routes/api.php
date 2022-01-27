@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SanctumTokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,5 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::post('/videos',[\App\Http\Controllers\VideosApiController::class,'store'])->middleware(['can:videos_manage_store']);
     Route::delete('/videos/{id}',[\App\Http\Controllers\VideosApiController::class,'destroy'])->middleware(['can:videos_manage_destroy']);
     Route::put('/videos/{id}',[\App\Http\Controllers\VideosApiController::class,'update'])->middleware(['can:videos_manage_update']);
-
-
 });
+

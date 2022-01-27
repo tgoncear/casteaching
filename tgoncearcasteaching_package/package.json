@@ -1,5 +1,5 @@
 {
-  "name": "@tgoncear/tgoncearcasteaching",
+  "name": "tgoncearcasteaching",
   "version": "1.0.2",
   "description": "JavasString package for casteaching API",
   "main": "index.js",
