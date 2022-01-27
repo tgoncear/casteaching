@@ -18,7 +18,7 @@ if(!function_exists('create_default_user')){
             'password'=>Hash::make(config('casteaching.default_user.passwordSergi'))
         ]);
         $userProf->superadmin = true;
-
+        //sd
 
         $userAlumn = User::create([
             'name' => (config('casteaching.default_user.nameTudor')),

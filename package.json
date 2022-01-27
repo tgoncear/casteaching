@@ -9,15 +9,25 @@
         "prod": "npm run production",
         "production": "mix --production"
     },
+    "dependencies": {
+        "@acacha/casteaching": "^1.0.12",
+        "laravel-mix": "^6.0.39",
+        "tgoncearcasteaching": "file:./tgoncearcasteaching_package",
+        "vue": "^2.6.14",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.6.14"
+    },
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.1",
         "@tailwindcss/typography": "^0.4.0",
         "alpinejs": "^3.0.6",
         "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
+        "laravel-mix": "^6.0.41",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^14.0.1",
-        "tailwindcss": "^2.2.2"
+        "tailwindcss": "^2.2.2",
+        "vue-loader": "^17.0.0",
+        "vue-template-compiler": "^2.6.14"
     }
 }
