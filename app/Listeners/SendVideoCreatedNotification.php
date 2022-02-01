@@ -24,6 +24,7 @@ class SendVideoCreatedNotification implements ShouldQueue
      * @param  VideoCreatedEvent  $event
      * @return void
      */
+    //s
     public function handle(VideoCreatedEvent $event)
     {
         $video = create_sample_video();
