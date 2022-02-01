@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Events\VideoCreatedEvent;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Eloquent\Collection;
@@ -9,6 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Tests\Feature\Traits\CanLogin;
@@ -114,7 +116,8 @@ class VideosManageControllerTest extends TestCase
             'description' => 'HTTP',
             'url' => 'https://tubeme.acacha.org/http',
         ]);
-
+        Event::fake();
+        Event::assertDispatched(VideoCreatedEvent::class);
         $response->assertRedirect(route('manage.videos'));
         $response->assertSessionHas('status', 'Successfully created');
 

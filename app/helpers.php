@@ -155,6 +155,20 @@ if(!function_exists('create_video_manager_user')){
         return $user;
     }
 }
+if(!function_exists('create_sample_video')) {
+    function create_sample_video()
+    {
+        return Video::create([
+            'title' => 'Ubuntu 101',
+            'description' => '# Here description',
+            'url' => 'https://youtu.be/w8j07_DBl_I',
+            'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
+            'previous' => null,
+            'next' => null,
+            'series_id' => 1
+        ]);
+    }
+}
 if(!function_exists('create_sample_videos')){
     function create_sample_videos(){
         $video1 = Video::create([
