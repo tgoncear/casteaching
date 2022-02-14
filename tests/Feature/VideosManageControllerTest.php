@@ -103,24 +103,22 @@ class VideosManageControllerTest extends TestCase
     /** @test */
     public function user_with_permissions_can_store_videos()
     {
+
         $this->loginAsVideoManager();
 
-        $video = objectify([
-            'title' => 'HTTP',
-            'description' => 'HTTP',
+        $video = objectify($videoArray = [
+            'title' => 'HTTP for noobs',
+            'description' => 'Te ensenyo tot el que se sobre HTTP',
             'url' => 'https://tubeme.acacha.org/http',
         ]);
 
-        $response = $this->post('/manage/videos',[
-            'title' => 'HTTP',
-            'description' => 'HTTP',
-            'url' => 'https://tubeme.acacha.org/http',
-        ]);
         Event::fake();
+        $response = $this->post('/manage/videos',$videoArray);
+
         Event::assertDispatched(VideoCreatedEvent::class);
+
         $response->assertRedirect(route('manage.videos'));
         $response->assertSessionHas('status', 'Successfully created');
-
 
         $videoDB = Video::first();
 
@@ -129,6 +127,7 @@ class VideosManageControllerTest extends TestCase
         $this->assertEquals($videoDB->description,$video->description);
         $this->assertEquals($videoDB->url,$video->url);
         $this->assertNull($video->published_at);
+
 
 
     }

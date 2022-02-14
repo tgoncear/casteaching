@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SanctumTokenController;
 use App\Http\Controllers\UsersManageController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\VideosManageController;
@@ -18,11 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\LandingPageController::class,'show']);
 Route::get('/videos/{id}', [ VideosController::class,'show']);
-
+Route::post('/sanctum/token',SanctumTokenController::class);
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dashboard', function () {
         return view('dashboard');

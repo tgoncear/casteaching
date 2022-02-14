@@ -12,11 +12,20 @@ class Video extends Model
 
     protected $guarded = [];
     protected $dates = ['published_at'];
-    public function getFormattedPublishedAtAttribute(){
-        $locale_date = optional($this->published_at->locale('ca_es'));
+    public function getFormattedPublishedAtAttribute()
+    {
+        if(!$this->published_at) return '';
+        $locale_date = $this->published_at->locale(config('app.locale'));
         return $locale_date->day . ' de ' . $locale_date->monthName . ' de ' . $locale_date->year;
     }
-    public function getFormattedForHumansPublishedAtAttribute(){
+
+    public function getFormattedForHumansPublishedAtAttribute()
+    {
         return optional($this->published_at)->diffForHumans(Carbon::now());
+    }
+
+    public function getPublishedAtTimestampAttribute()
+    {
+        return optional($this->published_at)->timestamp;
     }
 }
