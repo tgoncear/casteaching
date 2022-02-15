@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Serie;
 use App\Models\Team;
 use App\Models\User;
 use App\Models\Video;
@@ -7,7 +8,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Permission;
+use Symfony\Component\HttpFoundation\File\File;
 
 if(!function_exists('create_default_user')){
     function create_default_user(){
@@ -43,7 +46,7 @@ if(!function_exists('create_default_video')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
     }
 }
@@ -178,7 +181,7 @@ if(!function_exists('create_sample_videos')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
         $video2 = Video::create([
             'title' => 'Ubuntu 102',
@@ -187,7 +190,7 @@ if(!function_exists('create_sample_videos')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
         return [$video1,$video2];
     }
@@ -281,5 +284,49 @@ if (! function_exists('objectify')) {
     function objectify($array)
     {
         return new DomainObject($array);
+    }
+}
+if (! function_exists('create_sample_series')) {
+    function create_sample_series()
+    {
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
+        $serie1 = Serie::create([
+            'title' => 'TDD (Test Driven Development)',
+            'description' => 'Bla bla bla',
+            'image' => "tdd.png",
+            'teacher_name' => 'Sergi Tur Badenas',
+            'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
+        ]);
+
+        sleep(1);
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/crud_amb_vue_laravel.png')));
+
+        $serie2 = Serie::create([
+            'title' => 'Crud amb Vue i Laravel',
+            'description' => 'Bla bla bla',
+            'image' => 'crud_amb_vue_laravel.png',
+            'teacher_name' => 'Sergi Tur Badenas',
+            'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
+        ]);
+
+        sleep(1);
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/ionic_real_world.png')));
+
+        $serie3 = Serie::create([
+            'title' => 'ionic Real world',
+            'description' => 'Bla bla bla',
+            'image' => 'ionic_real_world.png',
+            'teacher_name' => 'Sergi Tur Badenas',
+            'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
+        ]);
+
+        sleep(1);
+
+        $serie4 = Serie::create([
+            'title' => 'Serie TODO',
+            'description' => 'Bla bla bla',
+        ]);
+
+        return [$serie1,$serie2,$serie3,$serie4];
     }
 }

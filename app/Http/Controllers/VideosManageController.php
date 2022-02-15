@@ -14,9 +14,11 @@ class VideosManageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function testedBy(){
+    public static function testedBy()
+    {
         return VideosManageControllerTest::class;
     }
+
     public function index()
     {
         return view('videos.manage.index',[
@@ -24,65 +26,47 @@ class VideosManageController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'url' => 'required',
+        ]);
+
         $video = Video::create([
             'title' => $request->title,
             'description' => $request->description,
             'url' => $request->url,
+            'serie_id' => $request->serie_id,
+            'user_id' => $request->user_id
         ]);
 
         session()->flash('status', 'Successfully created');
 
+        // DISPARAR UN EVENT
+        dd(VideoCreatedEvent::dispatch($video));
         VideoCreatedEvent::dispatch($video);
+
+        // SOLID -> Open a Extension Closed to modification
+        //SMELL CODE
+//        codi que envia email
+//        codi que fa un Activity Log
+//        processar per reduir la seva mida
+//        asd
+//        asd
+//        asd
+//        asd
+
         return redirect()->route('manage.videos');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         return view('videos.manage.edit',['video' => Video::findOrFail($id) ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $video = Video::findOrFail($id);
@@ -95,12 +79,6 @@ class VideosManageController extends Controller
         return redirect()->route('manage.videos');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Video::find($id)->delete();
