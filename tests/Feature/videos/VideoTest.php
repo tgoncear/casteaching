@@ -24,7 +24,7 @@ class VideoTest extends TestCase
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
         $response = $this->get('/videos/' . $video->id); // SLUGS -> SEO -> TODO
         //Comprovacions -

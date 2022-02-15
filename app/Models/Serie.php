@@ -12,6 +12,12 @@ class Serie extends Model
 
     protected $guarded = [];
 
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    // formatted_created_at accessor
     public function getFormattedCreatedAtAttribute()
     {
         if(!$this->created_at) return '';

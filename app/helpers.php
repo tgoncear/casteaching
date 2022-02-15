@@ -46,7 +46,7 @@ if(!function_exists('create_default_video')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
     }
 }
@@ -181,7 +181,7 @@ if(!function_exists('create_sample_videos')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
         $video2 = Video::create([
             'title' => 'Ubuntu 102',
@@ -190,7 +190,7 @@ if(!function_exists('create_sample_videos')){
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1
+            'serie_id' => 1
         ]);
         return [$video1,$video2];
     }
@@ -286,13 +286,14 @@ if (! function_exists('objectify')) {
         return new DomainObject($array);
     }
 }
-if(!function_exists('create_sample_series')){
-    function create_sample_series(){
+if (! function_exists('create_sample_series')) {
+    function create_sample_series()
+    {
         //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
         $serie1 = Serie::create([
             'title' => 'TDD (Test Driven Development)',
             'description' => 'Bla bla bla',
-            'image' => "",
+            'image' => "tdd.png",
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
@@ -303,7 +304,7 @@ if(!function_exists('create_sample_series')){
         $serie2 = Serie::create([
             'title' => 'Crud amb Vue i Laravel',
             'description' => 'Bla bla bla',
-            'image' => "",//$path,
+            'image' => 'crud_amb_vue_laravel.png',
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
@@ -314,11 +315,18 @@ if(!function_exists('create_sample_series')){
         $serie3 = Serie::create([
             'title' => 'ionic Real world',
             'description' => 'Bla bla bla',
-            'image' => "",
+            'image' => 'ionic_real_world.png',
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
-        return [$serie1,$serie2,$serie3];
+        sleep(1);
+
+        $serie4 = Serie::create([
+            'title' => 'Serie TODO',
+            'description' => 'Bla bla bla',
+        ]);
+
+        return [$serie1,$serie2,$serie3,$serie4];
     }
 }
