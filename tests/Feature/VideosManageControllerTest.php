@@ -57,7 +57,7 @@ class VideosManageControllerTest extends TestCase
 
     }
 
-    /** @test */
+    /** @test **/
     public function title_is_required()
     {
         $this->markTestIncomplete();
