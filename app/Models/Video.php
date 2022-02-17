@@ -39,4 +39,15 @@ class Video extends Model
         $this->save();
         return $this;
     }
+    public function setOwner(User $user)
+    {
+        $this->user_id = $user->id;
+        $this->save();
+        return $this;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

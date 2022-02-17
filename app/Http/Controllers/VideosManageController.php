@@ -44,8 +44,6 @@ class VideosManageController extends Controller
 
         session()->flash('status', 'Successfully created');
 
-        // DISPARAR UN EVENT
-        dd(VideoCreatedEvent::dispatch($video));
         VideoCreatedEvent::dispatch($video);
 
         // SOLID -> Open a Extension Closed to modification

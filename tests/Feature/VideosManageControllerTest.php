@@ -20,6 +20,42 @@ use App\Models\Serie;
 class VideosManageControllerTest extends TestCase
 {
     use RefreshDatabase, CanLogin;
+    /** @test */
+    public function user_with_permissions_can_store_videos_with_user_id()
+    {
+        $this->loginAsVideoManager();
+
+        $user = User::create([
+            'name' => 'Pepe Pardo Jeans',
+            'email' => 'pepepardo@casteaching.com',
+            'password' => Hash::make('12345678')
+        ]);
+
+        $video = objectify($videoArray = [
+            'title' => 'HTTP for noobs',
+            'description' => 'Te ensenyo tot el que se sobre HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+            'user_id' => $user->id
+        ]);
+
+        Event::fake();
+        $response = $this->post('/manage/videos',$videoArray);
+
+        Event::assertDispatched(VideoCreatedEvent::class);
+
+        $response->assertRedirect(route('manage.videos'));
+        $response->assertSessionHas('status', 'Successfully created');
+
+        $videoDB = Video::first();
+
+        $this->assertNotNull($videoDB);
+        $this->assertEquals($videoDB->title,$video->title);
+        $this->assertEquals($videoDB->description,$video->description);
+        $this->assertEquals($videoDB->url,$video->url);
+        $this->assertEquals($videoDB->user_id,$user->id);
+        $this->assertNull($video->published_at);
+
+    }
     /** @test  */
     public function user_with_permissions_can_store_videos_with_serie()
     {
@@ -47,12 +83,12 @@ class VideosManageControllerTest extends TestCase
         $response->assertRedirect(route('manage.videos'));
         $response->assertSessionHas('status', 'Successfully created');
 
-        $videoDB = Video::first();
+        $videoDB = json_decode(Video::first(),true);
         $this->assertNotNull($videoDB);
-        $this->assertEquals($videoDB->title,$video->title);
-        $this->assertEquals($videoDB->description,$video->description);
-        $this->assertEquals($videoDB->url,$video->url);
-        $this->assertEquals($videoDB->series_id,$serie->id);
+        $this->assertEquals($videoDB['title'],$video->title);
+        $this->assertEquals($videoDB['description'],$video->description);
+        $this->assertEquals($videoDB['url'],$video->url);
+        $this->assertEquals($videoDB['serie_id'],$serie->id);
         $this->assertNull($video->published_at);
 
     }
@@ -60,19 +96,40 @@ class VideosManageControllerTest extends TestCase
     /** @test **/
     public function title_is_required()
     {
-        $this->markTestIncomplete();
+        $this->loginAsVideoManager();
+        // Execució
+        $response = $this->post('/manage/videos',[
+            'description' => 'Te ensenyo tot el que se sobre HTTP',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+
+        $response->assertSessionHasErrors(['title']);
     }
 
     /** @test */
     public function description_is_required()
     {
-        $this->markTestIncomplete();
+        $this->loginAsVideoManager();
+        // Execució
+        $response = $this->post('/manage/videos',[
+            'title' => 'TDD 101',
+            'url' => 'https://tubeme.acacha.org/http',
+        ]);
+
+        $response->assertSessionHasErrors(['description']);
     }
 
     /** @test */
     public function url_is_required()
     {
-        $this->markTestIncomplete();
+        $this->loginAsVideoManager();
+        // Execució
+        $response = $this->post('/manage/videos',[
+            'title' => 'TDD 101',
+            'description' => 'Te ensenyo tot el que se sobre HTTP'
+        ]);
+
+        $response->assertSessionHasErrors(['url']);
     }
     /**
      * A basic feature test example.
@@ -87,8 +144,7 @@ class VideosManageControllerTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('videos.manage.index');
-
-        $response->assertSee('<form data-qa="form_video_create"',false);
+        $response->assertSee('data-qa="form_video_create"',false);
     }
 
     /** @test  */
@@ -106,12 +162,12 @@ class VideosManageControllerTest extends TestCase
         Auth::login($user);
 
         $response = $this->get('/manage/videos');
-
         $response->assertStatus(200);
         $response->assertViewIs('videos.manage.index');
 
-        $response->assertDontSee('<form data-qa="form_video_create"',false);
+        ($response->assertDontSee('<form data-qa="form_video_create"',false));
     }
+    /** @test */
     public function user_with_permissions_can_manage_videos()
     {
         $this->loginAsVideoManager();
