@@ -4,4 +4,4 @@
 
 ##### Videos a veure
 
-- Els usuaris poden veure videos -> user_can_view_videos
+- Els usuaris poden veure videos -> user_can_view_videos 
