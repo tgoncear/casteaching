@@ -4,13 +4,15 @@
             {{__('Videos')}}
         </h2>
     </x-slot>
-    <div class="flex flex-col mt-10 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <video-status></video-status>
-        @can('videos_manage_create')
-            <video-form></video-form>
+    <div class="flex flex-col mt-10">
+        <div class="mx-auto sm:px-6 lg:px-8 max-w-7xl">
+            <video-status></video-status>
+            @can('videos_manage_create')
+                <video-form></video-form>
 
 
-        @endcan
-        <videos-list></videos-list>
+            @endcan
+            <videos-list></videos-list>
+        </div>
     </div>
 </x-casteachin-layout>

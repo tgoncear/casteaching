@@ -1,12 +1,11 @@
 <template>
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen">
-        <div class="py-2 align-middle sm:px-6 lg:px-8 w-screen">
-            <div class="p-4">
-                <div class="md:grid md:grid-cols-3 md:gap-6">
-                    <div class="md:col-span-1">
-                        <div class="px-4 sm:px-0">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Vídeos</h3>
-                            <p class="mt-1 text-sm text-gray-600">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 mb-1 md:mb-2 lg:mb-4">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="md:grid md:grid-cols-3 md:gap-6 bg-white md:bg-transparent">
+                <div class="md:col-span-1">
+                    <div class="px-4 py-4 sm:px-6 md:px-4">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">Vídeos</h3>
+                        <p class="mt-1 text-sm text-gray-600">
                                 Informació bàsica del vídeo
                             </p>
                         </div>
@@ -63,7 +62,6 @@
                         </form>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </template>
