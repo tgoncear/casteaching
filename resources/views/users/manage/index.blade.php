@@ -4,13 +4,13 @@
             {{__('Users')}}
         </h2>
     </x-slot>
-    <div class="flex flex-col mt-10 mx-auto sm:px-6 lg:px-8 w-full max-w-7xl">
+    <div class="flex flex-col mt-10 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 
         <x-status></x-status>
 
         @can('users_manage_create')
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen">
-                <div class="py-2 align-middle sm:px-6 lg:px-8 w-screen">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle sm:px-6 lg:px-8">
                     <div class="p-4">
                         <div class="md:grid md:grid-cols-3 md:gap-6">
                             <div class="md:col-span-1">
@@ -81,7 +81,7 @@
         @endcan
 
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle sm:px-6 lg:px-8 w-screen">
+            <div class="py-2 align-middle sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">
