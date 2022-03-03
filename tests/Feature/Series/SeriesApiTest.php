@@ -13,6 +13,7 @@ use Tests\TestCase;
  */
 class SeriesApiTest extends TestCase
 {
+    //
     use RefreshDatabase, CanLogin;
 
     /** INDEX */
