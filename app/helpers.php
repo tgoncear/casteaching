@@ -289,33 +289,33 @@ if (! function_exists('objectify')) {
 if (! function_exists('create_sample_series')) {
     function create_sample_series()
     {
-        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
+        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
         $serie1 = Serie::create([
             'title' => 'TDD (Test Driven Development)',
             'description' => 'Bla bla bla',
-            'image' => "tdd.png",
+            'image' => $path,
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
         sleep(1);
-        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/crud_amb_vue_laravel.png')));
+        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/crud_amb_vue_laravel.png')));
 
         $serie2 = Serie::create([
             'title' => 'Crud amb Vue i Laravel',
             'description' => 'Bla bla bla',
-            'image' => 'crud_amb_vue_laravel.png',
+            'image' => $path,
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
         sleep(1);
-        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/ionic_real_world.png')));
+        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/ionic_real_world.png')));
 
         $serie3 = Serie::create([
             'title' => 'ionic Real world',
             'description' => 'Bla bla bla',
-            'image' => 'ionic_real_world.png',
+            'image' => $path,
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
