@@ -289,44 +289,38 @@ if (! function_exists('objectify')) {
 if (! function_exists('create_sample_series')) {
     function create_sample_series()
     {
-        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/tdd.png')));
         $serie1 = Serie::create([
             'title' => 'TDD (Test Driven Development)',
             'description' => 'Bla bla bla',
-            'image' => $path,
+            'image' => "tdd.png",
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
         sleep(1);
-        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/crud_amb_vue_laravel.png')));
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/crud_amb_vue_laravel.png')));
 
         $serie2 = Serie::create([
             'title' => 'Crud amb Vue i Laravel',
             'description' => 'Bla bla bla',
-            'image' => $path,
+            'image' => 'crud_amb_vue_laravel.png',
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
         sleep(1);
-        $path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/ionic_real_world.png')));
+        //$path = Storage::disk('public')->putFile('series', new File(base_path('series_photos/ionic_real_world.png')));
 
         $serie3 = Serie::create([
             'title' => 'ionic Real world',
             'description' => 'Bla bla bla',
-            'image' => $path,
+            'image' => 'ionic_real_world.png',
             'teacher_name' => 'Sergi Tur Badenas',
             'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@gmail.com')
         ]);
 
         sleep(1);
-
-        $serie4 = Serie::create([
-            'title' => 'Serie TODO',
-            'description' => 'Bla bla bla',
-        ]);
-
-        return [$serie1,$serie2,$serie3,$serie4];
+        return [$serie1,$serie2,$serie3];
     }
 }
