@@ -101,7 +101,7 @@ class YoutubeImportPlaylist extends Command
                 'url' => 'https://www.youtube.com/embed/' . $item->snippet->resourceId->videoId,
                 'published_at' => Carbon::now(),
                 'previous' => optional($previous)->id,
-                'user_id' => User::where(['email' => 'sergitur@gmail.com'])->first()->id,
+                'user_id' => User::where(['email' => 'sergitur@iesebre.com'])->first()->id,
                 'serie_id' => $serie->id
             ]);
             if ($previous) {
