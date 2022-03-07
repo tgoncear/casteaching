@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Tests\Feature\videos\VideoTest;
 
 class VideosController extends Controller
@@ -16,7 +18,7 @@ class VideosController extends Controller
     public function show($id)
     {
         return view('videos.show',[
-            'video' => Video::findOrFail($id)
+            'video' => \app\Models\Video::findOrFail($id)
         ]);
     }
 }
