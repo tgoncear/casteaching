@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
@@ -79,5 +81,42 @@ class User extends Authenticatable
         $video->user_id = $this->id;
         $video->save();
         return $this;
+    }
+    public static function createUserFromGithub($githubUser)
+    {
+        $user = User::where('github_id', $githubUser->id)->first();
+
+        if ($user) {
+            $user->name = $githubUser->name || 'Github User';
+            $user->github_token = $githubUser->token;
+            $user->github_refresh_token = $githubUser->refreshToken;
+            $user->github_nickname = $githubUser->nickname;
+            $user->github_avatar = $githubUser->avatar;
+            $user->save();
+        } else {
+            $user = User::where('email', $githubUser->email)->first();
+            if ($user) {
+                $user->github_id = $githubUser->id;
+                $user->name = $githubUser->name;
+                $user->github_nickname = $githubUser->nickname;
+                $user->github_avatar = $githubUser->avatar;
+                $user->github_token = $githubUser->token;
+                $user->github_refresh_token = $githubUser->refreshToken;
+                $user->save();
+            } else {
+                $user = User::create([
+                    'name' => $githubUser->name || 'Github User',
+                    'email' => $githubUser->email,
+                    'password' => Hash::make(Str::random()),
+                    'github_id' => $githubUser->id,
+                    'github_nickname' => $githubUser->nickname,
+                    'github_token' => $githubUser->token,
+                    'github_refresh_token' => $githubUser->refreshToken,
+                ]);
+                add_personal_team($user);
+            }
+        }
+
+        return $user;
     }
 }

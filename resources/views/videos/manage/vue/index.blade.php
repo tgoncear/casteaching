@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="flex flex-col mt-10">
-        <div class="mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div class="mx-auto sm:px-6 lg:px-8 w-full max-w-7xl">
             <video-status></video-status>
             @can('videos_manage_create')
                 <video-form></video-form>

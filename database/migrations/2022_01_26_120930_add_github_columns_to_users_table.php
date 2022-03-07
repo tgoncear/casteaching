@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -31,9 +33,21 @@ class AddGithubColumnsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('github_id');
-            $table->dropColumn('github_nickname');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('github_avatar');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('github_nickname');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('github_token');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('github_refresh_token');
         });
     }

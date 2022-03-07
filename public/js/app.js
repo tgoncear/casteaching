@@ -7897,6 +7897,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7916,11 +7918,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this.status.equals('creating')) {
+                if (_this.status === 'creating') {
                   _this.store();
                 }
 
-                if (_this.status.equals('editing')) {
+                if (_this.status === 'editing') {
                   _this.update();
                 }
 
@@ -7941,30 +7943,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                _context2.next = 3;
+                console.log("saving");
+                _context2.next = 4;
                 return (0,_acacha_casteaching__WEBPACK_IMPORTED_MODULE_2__["default"])().video.create({
                   title: _this2.video.title,
                   description: _this2.video.description,
                   url: _this2.video.url
                 });
 
-              case 3:
+              case 4:
+                console.log(_this2.video.title);
                 _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('created');
                 _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('status', 'Video created successfully');
-                _context2.next = 10;
+                _context2.next = 12;
                 break;
 
-              case 7:
-                _context2.prev = 7;
+              case 9:
+                _context2.prev = 9;
                 _context2.t0 = _context2["catch"](0);
                 console.log(_context2.t0);
 
-              case 10:
+              case 12:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, null, [[0, 9]]);
       }))();
     },
     update: function update() {
@@ -27242,292 +27246,269 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 mb-1 md:mb-2 lg:mb-4",
-    },
+    { staticClass: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen" },
     [
-      _c(
-        "div",
-        {
-          staticClass:
-            "py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8",
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "md:grid md:grid-cols-3 md:gap-6 bg-white md:bg-transparent",
-            },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: { "data-qa": "form_video_create", method: "post" },
-                    on: {
-                      submit: function ($event) {
-                        $event.preventDefault()
-                        return _vm.save.apply(null, arguments)
-                      },
+      _c("div", { staticClass: "py-2 align-middle sm:px-6 lg:px-8 w-screen" }, [
+        _c("div", { staticClass: "p-4" }, [
+          _c("div", { staticClass: "md:grid md:grid-cols-3 md:gap-6" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
+              _c(
+                "form",
+                {
+                  attrs: { "data-qa": "form_video_create", method: "post" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.save.apply(null, arguments)
                     },
                   },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "shadow sm:rounded-md sm:overflow-hidden",
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6",
-                          },
-                          [
-                            _c("div", [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "title" },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                        Title\n                                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.video.title,
-                                      expression: "video.title",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2",
-                                  attrs: {
-                                    required: "",
-                                    id: "title",
-                                    name: "title",
-                                    rows: "3",
-                                    placeholder: "Titol del vídeo",
-                                  },
-                                  domProps: { value: _vm.video.title },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.video,
-                                        "title",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "mt-2 text-sm text-gray-500" },
-                                [
-                                  _vm._v(
-                                    "\n                                        Titol curt del nostre vídeo\n                                    "
-                                  ),
-                                ]
-                              ),
-                            ]),
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "shadow sm:rounded-md sm:overflow-hidden" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6" },
+                        [
+                          _c("div", [
+                            _c(
+                              "label",
+                              {
+                                staticClass:
+                                  "block text-sm font-medium text-gray-700",
+                                attrs: { for: "title" },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        Title\n                                    "
+                                ),
+                              ]
+                            ),
                             _vm._v(" "),
-                            _c("div", [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "description" },
+                            _c("div", { staticClass: "mt-1" }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.video.title,
+                                    expression: "video.title",
+                                  },
+                                ],
+                                staticClass:
+                                  "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2",
+                                attrs: {
+                                  required: "",
+                                  id: "title",
+                                  name: "title",
+                                  rows: "3",
+                                  placeholder: "Titol del vídeo",
                                 },
-                                [
-                                  _vm._v(
-                                    "                                                    Description\n                                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("textarea", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.video.description,
-                                      expression: "video.description",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md",
-                                  attrs: {
-                                    required: "",
-                                    id: "description",
-                                    name: "description",
-                                    rows: "3",
-                                    placeholder: "Description",
+                                domProps: { value: _vm.video.title },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.video,
+                                      "title",
+                                      $event.target.value
+                                    )
                                   },
-                                  domProps: { value: _vm.video.description },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.video,
-                                        "description",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "mt-2 text-sm text-gray-500" },
-                                [
-                                  _vm._v(
-                                    "\n                                        Brief description for your profile. URLs are hyperlinked.\n                                    "
-                                  ),
-                                ]
-                              ),
+                                },
+                              }),
                             ]),
                             _vm._v(" "),
                             _c(
+                              "p",
+                              { staticClass: "mt-2 text-sm text-gray-500" },
+                              [
+                                _vm._v(
+                                  "\n                                        Titol curt del nostre vídeo\n                                    "
+                                ),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "label",
+                              {
+                                staticClass:
+                                  "block text-sm font-medium text-gray-700",
+                                attrs: { for: "description" },
+                              },
+                              [
+                                _vm._v(
+                                  "                                                    Description\n                                    "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "mt-1" }, [
+                              _c("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.video.description,
+                                    expression: "video.description",
+                                  },
+                                ],
+                                staticClass:
+                                  "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md",
+                                attrs: {
+                                  required: "",
+                                  id: "description",
+                                  name: "description",
+                                  rows: "3",
+                                  placeholder: "Description",
+                                },
+                                domProps: { value: _vm.video.description },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.video,
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              { staticClass: "mt-2 text-sm text-gray-500" },
+                              [
+                                _vm._v(
+                                  "\n                                        Brief description for your profile. URLs are hyperlinked.\n                                    "
+                                ),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "grid grid-cols-3 gap-6" }, [
+                            _c(
                               "div",
-                              { staticClass: "grid grid-cols-3 gap-6" },
+                              { staticClass: "col-span-3 sm:col-span-2" },
                               [
                                 _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "url" },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            URL\n                                        "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
                                   "div",
-                                  { staticClass: "col-span-3 sm:col-span-2" },
+                                  {
+                                    staticClass:
+                                      "mt-1 flex rounded-md shadow-sm",
+                                  },
                                   [
                                     _c(
-                                      "label",
+                                      "span",
                                       {
                                         staticClass:
-                                          "block text-sm font-medium text-gray-700",
-                                        attrs: { for: "url" },
+                                          "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm",
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                            URL\n                                        "
+                                          "\n                                                    http://\n                                                  "
                                         ),
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "mt-1 flex rounded-md shadow-sm",
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.video.url,
+                                          expression: "video.url",
+                                        },
+                                      ],
+                                      staticClass:
+                                        "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                      attrs: {
+                                        required: "",
+                                        type: "url",
+                                        name: "url",
+                                        id: "url",
+                                        placeholder: "youtube.com/",
                                       },
-                                      [
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm",
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                    http://\n                                                  "
-                                            ),
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.video.url,
-                                              expression: "video.url",
-                                            },
-                                          ],
-                                          staticClass:
-                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                          attrs: {
-                                            required: "",
-                                            type: "url",
-                                            name: "url",
-                                            id: "url",
-                                            placeholder: "youtube.com/",
-                                          },
-                                          domProps: { value: _vm.video.url },
-                                          on: {
-                                            input: function ($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                _vm.video,
-                                                "url",
-                                                $event.target.value
-                                              )
-                                            },
-                                          },
-                                        }),
-                                      ]
-                                    ),
+                                      domProps: { value: _vm.video.url },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.video,
+                                            "url",
+                                            $event.target.value
+                                          )
+                                        },
+                                      },
+                                    }),
                                   ]
                                 ),
                               ]
                             ),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-4 py-3 bg-gray-50 text-right sm:px-6",
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                attrs: { type: "submit" },
-                              },
-                              [
-                                _vm.status === "creating"
-                                  ? _c("span", [_vm._v("Create")])
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _vm.status === "editing"
-                                  ? _c("span", [_vm._v("Edit")])
-                                  : _vm._e(),
-                              ]
-                            ),
-                          ]
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ]),
-            ]
-          ),
-        ]
-      ),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-4 py-3 bg-gray-50 text-right sm:px-6",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                              attrs: { type: "submit" },
+                            },
+                            [
+                              _vm.status === "creating"
+                                ? _c("span", [_vm._v("Create")])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.status === "editing"
+                                ? _c("span", [_vm._v("Edit")])
+                                : _vm._e(),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
     ]
   )
 }
@@ -27537,7 +27518,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "md:col-span-1" }, [
-      _c("div", { staticClass: "px-4 py-4 sm:px-6 md:px-4" }, [
+      _c("div", { staticClass: "px-4 sm:px-0" }, [
         _c(
           "h3",
           { staticClass: "text-lg font-medium leading-6 text-gray-900" },
