@@ -7897,8 +7897,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -27244,269 +27242,292 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen" },
+    {
+      staticClass:
+        "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 mb-1 md:mb-2 lg:mb-4",
+    },
     [
-      _c("div", { staticClass: "py-2 align-middle sm:px-6 lg:px-8 w-screen" }, [
-        _c("div", { staticClass: "p-4" }, [
-          _c("div", { staticClass: "md:grid md:grid-cols-3 md:gap-6" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
-              _c(
-                "form",
-                {
-                  attrs: { "data-qa": "form_video_create", method: "post" },
-                  on: {
-                    submit: function ($event) {
-                      $event.preventDefault()
-                      return _vm.save.apply(null, arguments)
+      _c(
+        "div",
+        {
+          staticClass:
+            "py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8",
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "md:grid md:grid-cols-3 md:gap-6 bg-white md:bg-transparent",
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
+                _c(
+                  "form",
+                  {
+                    attrs: { "data-qa": "form_video_create", method: "post" },
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.save.apply(null, arguments)
+                      },
                     },
                   },
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "shadow sm:rounded-md sm:overflow-hidden" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6" },
-                        [
-                          _c("div", [
-                            _c(
-                              "label",
-                              {
-                                staticClass:
-                                  "block text-sm font-medium text-gray-700",
-                                attrs: { for: "title" },
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                        Title\n                                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-1" }, [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.video.title,
-                                    expression: "video.title",
-                                  },
-                                ],
-                                staticClass:
-                                  "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2",
-                                attrs: {
-                                  required: "",
-                                  id: "title",
-                                  name: "title",
-                                  rows: "3",
-                                  placeholder: "Titol del vídeo",
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "shadow sm:rounded-md sm:overflow-hidden",
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6",
+                          },
+                          [
+                            _c("div", [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700",
+                                  attrs: { for: "title" },
                                 },
-                                domProps: { value: _vm.video.title },
-                                on: {
-                                  input: function ($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.video,
-                                      "title",
-                                      $event.target.value
-                                    )
+                                [
+                                  _vm._v(
+                                    "\n                                        Title\n                                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-1" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.video.title,
+                                      expression: "video.title",
+                                    },
+                                  ],
+                                  staticClass:
+                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2",
+                                  attrs: {
+                                    required: "",
+                                    id: "title",
+                                    name: "title",
+                                    rows: "3",
+                                    placeholder: "Titol del vídeo",
                                   },
-                                },
-                              }),
+                                  domProps: { value: _vm.video.title },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.video,
+                                        "title",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "mt-2 text-sm text-gray-500" },
+                                [
+                                  _vm._v(
+                                    "\n                                        Titol curt del nostre vídeo\n                                    "
+                                  ),
+                                ]
+                              ),
                             ]),
                             _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "mt-2 text-sm text-gray-500" },
-                              [
-                                _vm._v(
-                                  "\n                                        Titol curt del nostre vídeo\n                                    "
-                                ),
-                              ]
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c(
-                              "label",
-                              {
-                                staticClass:
-                                  "block text-sm font-medium text-gray-700",
-                                attrs: { for: "description" },
-                              },
-                              [
-                                _vm._v(
-                                  "                                                    Description\n                                    "
-                                ),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-1" }, [
-                              _c("textarea", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.video.description,
-                                    expression: "video.description",
-                                  },
-                                ],
-                                staticClass:
-                                  "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md",
-                                attrs: {
-                                  required: "",
-                                  id: "description",
-                                  name: "description",
-                                  rows: "3",
-                                  placeholder: "Description",
+                            _c("div", [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700",
+                                  attrs: { for: "description" },
                                 },
-                                domProps: { value: _vm.video.description },
-                                on: {
-                                  input: function ($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.video,
-                                      "description",
-                                      $event.target.value
-                                    )
+                                [
+                                  _vm._v(
+                                    "                                                    Description\n                                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-1" }, [
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.video.description,
+                                      expression: "video.description",
+                                    },
+                                  ],
+                                  staticClass:
+                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md",
+                                  attrs: {
+                                    required: "",
+                                    id: "description",
+                                    name: "description",
+                                    rows: "3",
+                                    placeholder: "Description",
                                   },
-                                },
-                              }),
+                                  domProps: { value: _vm.video.description },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.video,
+                                        "description",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "mt-2 text-sm text-gray-500" },
+                                [
+                                  _vm._v(
+                                    "\n                                        Brief description for your profile. URLs are hyperlinked.\n                                    "
+                                  ),
+                                ]
+                              ),
                             ]),
                             _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "mt-2 text-sm text-gray-500" },
-                              [
-                                _vm._v(
-                                  "\n                                        Brief description for your profile. URLs are hyperlinked.\n                                    "
-                                ),
-                              ]
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "grid grid-cols-3 gap-6" }, [
                             _c(
                               "div",
-                              { staticClass: "col-span-3 sm:col-span-2" },
+                              { staticClass: "grid grid-cols-3 gap-6" },
                               [
                                 _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "block text-sm font-medium text-gray-700",
-                                    attrs: { for: "url" },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                            URL\n                                        "
-                                    ),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
                                   "div",
-                                  {
-                                    staticClass:
-                                      "mt-1 flex rounded-md shadow-sm",
-                                  },
+                                  { staticClass: "col-span-3 sm:col-span-2" },
                                   [
                                     _c(
-                                      "span",
+                                      "label",
                                       {
                                         staticClass:
-                                          "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm",
+                                          "block text-sm font-medium text-gray-700",
+                                        attrs: { for: "url" },
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                    http://\n                                                  "
+                                          "\n                                            URL\n                                        "
                                         ),
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.video.url,
-                                          expression: "video.url",
-                                        },
-                                      ],
-                                      staticClass:
-                                        "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                      attrs: {
-                                        required: "",
-                                        type: "url",
-                                        name: "url",
-                                        id: "url",
-                                        placeholder: "youtube.com/",
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "mt-1 flex rounded-md shadow-sm",
                                       },
-                                      domProps: { value: _vm.video.url },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.video,
-                                            "url",
-                                            $event.target.value
-                                          )
-                                        },
-                                      },
-                                    }),
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm",
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    http://\n                                                  "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.video.url,
+                                              expression: "video.url",
+                                            },
+                                          ],
+                                          staticClass:
+                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                          attrs: {
+                                            required: "",
+                                            type: "url",
+                                            name: "url",
+                                            id: "url",
+                                            placeholder: "youtube.com/",
+                                          },
+                                          domProps: { value: _vm.video.url },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.video,
+                                                "url",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                      ]
+                                    ),
                                   ]
                                 ),
                               ]
                             ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "px-4 py-3 bg-gray-50 text-right sm:px-6",
-                        },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                              attrs: { type: "submit" },
-                            },
-                            [
-                              _vm.status === "creating"
-                                ? _c("span", [_vm._v("Create")])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.status === "editing"
-                                ? _c("span", [_vm._v("Edit")])
-                                : _vm._e(),
-                            ]
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "px-4 py-3 bg-gray-50 text-right sm:px-6",
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                                attrs: { type: "submit" },
+                              },
+                              [
+                                _vm.status === "creating"
+                                  ? _c("span", [_vm._v("Create")])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.status === "editing"
+                                  ? _c("span", [_vm._v("Edit")])
+                                  : _vm._e(),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+            ]
+          ),
+        ]
+      ),
     ]
   )
 }
@@ -27516,7 +27537,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "md:col-span-1" }, [
-      _c("div", { staticClass: "px-4 sm:px-0" }, [
+      _c("div", { staticClass: "px-4 py-4 sm:px-6 md:px-4" }, [
         _c(
           "h3",
           { staticClass: "text-lg font-medium leading-6 text-gray-900" },
@@ -27694,123 +27715,115 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 w-screen" },
-    [
-      _c("div", { staticClass: "py-2 align-middle sm:px-6 lg:px-8 w-screen" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "shadow overflow-hidden border-b border-gray-200 sm:rounded-lg",
-          },
-          [
-            _vm._m(0),
+  return _c("div", { staticClass: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8" }, [
+    _c("div", { staticClass: "py-2 align-middle sm:px-6 lg:px-8" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "shadow overflow-hidden border-b border-gray-200 sm:rounded-lg",
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("table", { staticClass: "min-w-full divide-y divide-gray-200" }, [
+            _vm._m(1),
             _vm._v(" "),
             _c(
-              "table",
-              { staticClass: "min-w-full w-full divide-y divide-gray-200" },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.videos, function (video) {
-                    return _c("tr", { staticClass: "bg-white" }, [
-                      _c(
-                        "td",
-                        {
-                          staticClass:
-                            "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900",
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(video.id) +
-                              "\n                    "
-                          ),
-                        ]
+              "tbody",
+              _vm._l(_vm.videos, function (video) {
+                return _c("tr", { staticClass: "bg-white" }, [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900",
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(video.id) +
+                          "\n                    "
                       ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(video.title) +
+                          "\n                    "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(video.description) +
+                          "\n                    "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(video.url) +
+                          "\n                    "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "px-6 py-4 whitespace-nowrap text-right text-sm font-medium",
+                    },
+                    [
+                      _c("video-show-link", { attrs: { video: video } }),
                       _vm._v(" "),
-                      _c(
-                        "td",
-                        {
-                          staticClass:
-                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(video.title) +
-                              "\n                    "
-                          ),
-                        ]
-                      ),
+                      _c("video-edit-link", { attrs: { video: video } }),
                       _vm._v(" "),
-                      _c(
-                        "td",
-                        {
-                          staticClass:
-                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
+                      _c("video-destroy-link", {
+                        attrs: { video: video },
+                        on: {
+                          removed: function ($event) {
+                            return _vm.refresh()
+                          },
                         },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(video.description) +
-                              "\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        {
-                          staticClass:
-                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500",
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(video.url) +
-                              "\n                    "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        {
-                          staticClass:
-                            "px-6 py-4 whitespace-nowrap text-right text-sm font-medium",
-                        },
-                        [
-                          _c("video-show-link", { attrs: { video: video } }),
-                          _vm._v(" "),
-                          _c("video-edit-link", { attrs: { video: video } }),
-                          _vm._v(" "),
-                          _c("video-destroy-link", {
-                            attrs: { video: video },
-                            on: {
-                              removed: function ($event) {
-                                return _vm.refresh()
-                              },
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                    ])
-                  }),
-                  0
-                ),
-              ]
+                      }),
+                    ],
+                    1
+                  ),
+                ])
+              }),
+              0
             ),
-          ]
-        ),
-      ]),
-    ]
-  )
+          ]),
+        ]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -42209,7 +42222,7 @@ module.exports = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"/home/alumne/code/laravel_project/casteaching","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","/home/alumne/code/laravel_project/casteaching"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"/home/alumne/code/laravel_project/casteaching","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
