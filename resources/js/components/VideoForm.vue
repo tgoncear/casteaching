@@ -97,7 +97,6 @@ export default {
                     description: this.video.description,
                     url: this.video.url
                 });
-                console.log(this.video.title);
                 eventBus.$emit('created');
                 eventBus.$emit('status','Video created successfully');
             }catch(error){

@@ -30,9 +30,9 @@ class VideosApiController extends Controller
     public function store(Request $request)
     {
         return Video::create([
-            'title' => 'HTTP',
-            'description' => 'HTTP',
-            'url' => 'https://tubeme.acacha.org/http',
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
         ]);
     }
 
