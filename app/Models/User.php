@@ -97,7 +97,7 @@ class User extends Authenticatable
             $user = User::where('email', $githubUser->email)->first();
             if ($user) {
                 $user->github_id = $githubUser->id;
-                $user->name = $githubUser->name;
+                $user->name = $githubUser->name == null ? $githubUser->nickname : $githubUser->name;
                 $user->github_nickname = $githubUser->nickname;
                 $user->github_avatar = $githubUser->avatar;
                 $user->github_token = $githubUser->token;
