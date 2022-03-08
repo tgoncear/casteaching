@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Video;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class VideosController extends Controller
     public function show($id)
     {
         return view('videos.show',[
-            'video' => \app\Models\Video::findOrFail($id)
+            'video' => Video::findOrFail($id)
         ]);
     }
 }
