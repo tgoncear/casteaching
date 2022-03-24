@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GithubAuthController;
 use App\Http\Controllers\SanctumTokenController;
+use App\Http\Controllers\SeriesImagesManageController;
 use App\Http\Controllers\SeriesManageController;
 use App\Http\Controllers\UsersManageController;
 use App\Http\Controllers\VideosController;
