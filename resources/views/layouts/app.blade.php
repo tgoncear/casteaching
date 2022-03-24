@@ -15,8 +15,6 @@
 
         @livewireStyles
 
-<<<<<<< HEAD
-=======
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Z380SERWJ"></script>
         <script>
@@ -27,7 +25,6 @@
             gtag('config', 'G-2Z380SERWJ');
         </script>
 
->>>>>>> acacha/crud_series
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>

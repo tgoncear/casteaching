@@ -30,6 +30,11 @@
                             {{ __('Users') }}
                         </x-jet-nav-link>
                     @endcan
+                    @can('series_manage_index')
+                        <x-jet-nav-link href="/manage/series" :active="request()->routeIs('manage.series')">
+                            {{ __('Series') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
             @if(Auth::check())
