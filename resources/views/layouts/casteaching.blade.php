@@ -8,13 +8,15 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+{{--        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">--}}
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-<<<<<<< HEAD
-=======
+        @livewireStyles
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Z380SERWJ"></script>
         <script>
@@ -25,13 +27,32 @@
             gtag('config', 'G-2Z380SERWJ');
         </script>
 
->>>>>>> acacha/crud_series
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        @paddleJS
+
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+    <body class="font-sans antialiased">
+        <x-jet-banner />
+
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigation-menu')
+
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+
+        <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
+
     </body>
 </html>
