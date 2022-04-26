@@ -286,6 +286,12 @@ if (! function_exists('objectify')) {
         return new DomainObject($array);
     }
 }
+if (! function_exists('create_placeholder_series_image')) {
+    function create_placeholder_series_image()
+    {
+        return Storage::disk('public')->putFileAs('series', new File(base_path('/series_photos/placeholder.png')),'placeholder.png');
+    }
+}
 if (! function_exists('create_sample_series')) {
     function create_sample_series()
     {
@@ -321,6 +327,12 @@ if (! function_exists('create_sample_series')) {
         ]);
 
         sleep(1);
-        return [$serie1,$serie2,$serie3];
+
+        $serie4 = Serie::create([
+            'title' => 'Serie TODO',
+            'description' => 'Bla bla bla',
+        ]);
+
+        return [$serie1,$serie2,$serie3,$serie4];
     }
 }

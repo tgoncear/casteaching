@@ -41,4 +41,17 @@ class SerieTest extends TestCase
         $this->assertNotNull($serie->videos);
         $this->assertCount(1,$serie->videos);
     }
+    /** @test */
+    public function serie_have_placeholder_image_when_image_is_null()
+    {
+        $serie = Serie::create([
+            'title' => 'TDD (Test Driven Development)',
+            'description' => 'Bla bla bla'
+        ]);
+
+        $this->assertNull($serie->image);
+
+        $this->assertNotNull($serie->image_url);
+        $this->assertEquals('series/placeholder.png',$serie->image_url);
+    }
 }
