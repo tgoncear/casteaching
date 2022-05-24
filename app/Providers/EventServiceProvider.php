@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Console\Commands\TestSendVideoCreatedEmail;
+use App\Events\SeriesImageUpdated;
 use App\Events\VideoCreatedEvent;
+use App\Listeners\ScheduleSeriesImageProcessing;
 use App\Notifications\VideoCreatedNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -24,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
         VideoCreatedEvent::class=>[
             SendVideoCreatedNotification::class,
         ],
+        SeriesImageUpdated::class => [
+            ScheduleSeriesImageProcessing::class
+        ]
     ];
 
     /**

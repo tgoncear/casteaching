@@ -28,8 +28,9 @@ class VideosController extends Controller
                 }
             }
         }
-        return view('videos.show',[
-            'video' => $video
+        return view(count($videos_series = collect($video->serie?->videos)) > 0 ? 'videos.show' : 'videos.show_without_series_navigation',[
+            'video' => $video,
+            'videos_series' => $videos_series
         ]);
     }
 }

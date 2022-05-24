@@ -186,7 +186,7 @@ if(!function_exists('create_sample_videos')){
         $video2 = Video::create([
             'title' => 'Ubuntu 102',
             'description' => '# Here description',
-            'url' => 'https://youtu.be/w8j07_DBl_I',
+            'url' => 'https://www.youtube.com/embed/zyABmm6Dw64',
             'published_at' => Carbon::parse('December 13, 2020 8:00pm'),
             'previous' => null,
             'next' => null,
