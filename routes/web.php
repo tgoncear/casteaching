@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Kanuu\Laravel\Facades\Kanuu;
 use Laravel\Socialite\Facades\Socialite;
 
 /*
@@ -136,3 +137,6 @@ Route::put('/manage/series/{id}',[ SeriesManageController::class,'update' ])->mi
 
 Route::put('/manage/series/{id}/image',[ SeriesImagesManageController::class,'update' ])->middleware(['can:series_manage_update']);
 
+Kanuu::redirectRoute()
+    ->middleware('auth')
+    ->name('kanuu.redirect');

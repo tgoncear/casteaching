@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @paddleJS
 </head>
 <body class="font-sans antialiased h-full">
 <x-jet-banner />
